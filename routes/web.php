@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('top');
 });
 
+Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::get('/drafts/new', 'Auth\PostController@index')->name('drafts.new');
