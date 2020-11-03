@@ -11,4 +11,13 @@ class PostController extends Controller
     {
         return view('auth.drafts.new');
     }
+
+    public function postArticle(Request $request)
+    {
+        $request->validate([
+            'weight' => 'required|unique:posts|max:10',
+            'percentage' => 'max:10',
+            'content' => 'max:255',
+        ]);
+    }
 }

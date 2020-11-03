@@ -1,11 +1,12 @@
 @extends('layouts.common')
+@section('title','トップ')
 @section('content')
 
 @if(!Auth::check())
 <div id="login-wrapper" class="row">
   <div class="col-7">
-    <h1 class="text-white"><b>Hello Hackers！</b></h1>
-    <p class="text-white">調味料管理アプリは冷蔵庫で食材を腐らせないように記録するアプリです。<br>今日買った食材を書いて忘れないようにしましょう！<br>
+    <h1 class="text-white"><b>そうだ！ ダイエットしよう！ </b></h1>
+    <p class="text-white">ダイエット宣言アプリは自分の現在の体重と目標体重を宣言して記録するアプリです。<br>目標を宣言してモチベーションを上げましょう！<br>
       ユーザー登録が面倒な方はこちらでもログインできます。<br><br>
       ユーザー名：test <br><br>
       メールアドレス：test@test.com <br><br>
