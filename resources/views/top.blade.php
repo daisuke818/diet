@@ -38,6 +38,37 @@
   </div>
 </div>
 @else
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">記事番号</th>
+            <th scope="col">ニックネーム</th>
+            <th scope="col">現在の体重</th>
+            <th scope="col">目標体重</th>
+            <th scope="col">宣言</th>
+            <th scope="col">日付</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($posts as $post)
+          <tr>
+            <td>{{ $post->id }}</td>
+            <td>{{ $post->name }}</td>
+            <td>{{ $post->weight }}</td>
+            <td>{{ $post->target_weight }}</td>
+            <td>{{ $post->content }}</td>
+            <td>{{ $post->updated_at }}</td>
+          </tr>
+        </tbody>
+        @endforeach
+      </table>
+    </div>
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
 @endif
 
 @endsection
