@@ -12,9 +12,9 @@ class Post extends Model
     //可変項目
     protected $fillable =
     [
-        'user_id',
+        'name',
         'weight',
-        'percentage',
+        'target_weight',
         'content',
     ];
 }

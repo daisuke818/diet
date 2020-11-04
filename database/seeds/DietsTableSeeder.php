@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Post;
 
-class DietsTable extends Seeder
+class DietsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +12,6 @@ class DietsTable extends Seeder
      */
     public function run()
     {
-        //
+        factory(Post::class, 3)->create();
     }
 }
