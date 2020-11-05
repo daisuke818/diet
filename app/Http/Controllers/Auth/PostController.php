@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -43,5 +44,31 @@ class PostController extends Controller
         }
 
         return view('auth.drafts.detail', ['post' => $post]);
+    }
+
+    /**
+     * 宣言を登録する
+     */
+    public function exeStore(PostRequest $request)
+    {
+        //宣言のデータを受け取る
+        $input = $request->all();
+
+        \DB::beginTransaction();
+        try {
+            //宣言の登録
+            Post::create($input);
+            //登録に成功したらコミットする
+            \DB::commit();
+        } catch (\Throwable $e) {
+            //登録が失敗したらエラーページを表示する
+            \DB::rollback();
+            abort(500);
+        }
+
+
+        \Session::flash('err_msg', '宣言を登録しました');
+
+        return redirect(route('top'));
     }
 }
