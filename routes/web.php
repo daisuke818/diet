@@ -12,14 +12,16 @@
 */
 
 Auth::routes();
-// 一覧画面を表示
+// 宣言一覧画面を表示
 Route::get('/', 'Auth\PostController@showTopPage')->name('top');
 
-// 詳細画面を表示
+// 宣言詳細画面を表示
 Route::get('/post/{id}', 'Auth\PostController@showDetail')->name('show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// 宣言登録画面
 Route::get('/drafts/new', 'Auth\PostController@index')->name('drafts.new');
 
-Route::post('/drafts/new', 'Auth\PostController@postArticle')->name('drafts.new.posts');
+// 宣言登録
+Route::post('/drafts/store', 'Auth\PostController@exeStore')->name('store');

@@ -10976,3 +10976,7 @@ nav #Navber .navbar-nav .nav-item #post-link {
   border: solid 2px white;
 }
 
+.fixed-bottom {
+  background-color: #66ccff !important;
+}
+

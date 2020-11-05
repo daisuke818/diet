@@ -44,7 +44,7 @@
       <h2>{{ $post->name }}</h2>
       <span>宣言日：{{ $post->created_at }}</span>
       <span>更新日：{{ $post->updated_at }}</span>
-      <p>{{ $post->content }}</p>
+      <p class="mt-3">{{ $post->content }}</p>
     </div><!-- /.col-12 -->
   </div><!-- /.row -->
 </div><!-- /.container -->

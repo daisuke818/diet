@@ -4,7 +4,7 @@
 <div class="container">
 
   <h3 class="mt-3">入力フォーム</h3>
-  <form method="POST" action="" onSubmit="return checkSubmit()">
+  <form method="POST" action="{{ route('store') }}" onSubmit="return checkSubmit()">
     @csrf
     <table>
       <tr>
@@ -13,6 +13,12 @@
         </th>
         <td>
           <input id="name" name="name" class="mt-3" value="{{ old('name') }}" type="text">
+          <!-- エラーの存在チェック -->
+          @if ($errors->has('name'))
+          <div class="text-danger">
+            {{$errors->first('name')}}
+          </div>
+          @endif
         </td>
       </tr>
       <tr>
@@ -21,12 +27,22 @@
         <td>
           <input id="weight" name="weight" class="mt-3" value="{{ old('weight') }}" type="text">
           kg
+          @if ($errors->has('weight'))
+          <div class="text-danger">
+            {{$errors->first('weight')}}
+          </div>
+          @endif
         </td>
       </tr>
       <tr>
         <th><label for="target_weight" class="mt-4">目標体重</label></th>
         <td>
           <input id="target_weight" name="target_weight" class="mt-3" value="{{ old('target_weight') }}" type="text"> <span>kg</span>
+          @if ($errors->has('target_weight'))
+          <div class="text-danger">
+            {{$errors->first('target_weight')}}
+          </div>
+          @endif
         </td>
       </tr>
       <tr>
@@ -34,6 +50,11 @@
         <td>
           <textarea id="content" name="content" class="mt-3" rows="4">{{ old('content') }}
           </textarea>
+          @if ($errors->has('content'))
+          <div class="text-danger">
+            {{$errors->first('content')}}
+          </div>
+          @endif
         </td>
       </tr>
     </table>
