@@ -1,5 +1,5 @@
 @extends('layouts.common')
-@section('title','トップ')
+@section('title','詳細画面')
 @section('content')
 
 @if(!Auth::check())
@@ -40,37 +40,13 @@
 @else
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h2 class="mt-3">宣言一覧</h2>
-      @if (session('err_msg'))
-      <p class="text-danger">{{ session('err_msg') }}</p>
-      @endif
-      <table class="table mt-3">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">No.</th>
-            <th scope="col">ニックネーム</th>
-            <th scope="col">現在の体重</th>
-            <th scope="col">目標体重</th>
-            <th scope="col">日付</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($posts as $post)
-          <tr>
-            <td>{{ $post->id }}</td>
-            <td> <a href="/post/{{ $post->id }}">{{ $post->name }}</a></td>
-            <td>{{ $post->weight }}kg</td>
-            <td>{{ $post->target_weight }}kg</td>
-            <td>{{ $post->updated_at }}</td>
-          </tr>
-        </tbody>
-        @endforeach
-      </table>
-    </div>
+    <div class="col-12 mt-3">
+      <h2>{{ $post->name }}</h2>
+      <span>宣言日：{{ $post->created_at }}</span>
+      <span>更新日：{{ $post->updated_at }}</span>
+      <p>{{ $post->content }}</p>
+    </div><!-- /.col-12 -->
   </div><!-- /.row -->
 </div><!-- /.container -->
-
 @endif
-
 @endsection

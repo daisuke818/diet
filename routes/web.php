@@ -11,9 +11,12 @@
 |
 */
 
+Auth::routes();
+// 一覧画面を表示
 Route::get('/', 'Auth\PostController@showTopPage')->name('top');
 
-Auth::routes();
+// 詳細画面を表示
+Route::get('/post/{id}', 'Auth\PostController@showDetail')->name('show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
