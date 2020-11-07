@@ -53,6 +53,8 @@
             <th scope="col">現在の体重</th>
             <th scope="col">目標体重</th>
             <th scope="col">日付</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -63,14 +65,28 @@
             <td>{{ $post->weight }}kg</td>
             <td>{{ $post->target_weight }}kg</td>
             <td>{{ $post->updated_at }}</td>
+            <td><button type="button" class="btn btn-primary" onclick="location.href='/post/edit/{{ $post->id }}'">編集</button></td>
+
+            <form method="POST" action="{{ route('delete',$post->id) }}" onSubmit="return checkDelete()">
+              @csrf
+              <td><button type="submit" class="btn btn-danger" onclick=>削除 </button> </td>
+            </form>
           </tr>
-        </tbody>
-        @endforeach
+        </tbody> @endforeach
       </table>
     </div>
-  </div><!-- /.row -->
+  </div> <!-- /.row -->
 </div><!-- /.container -->
 
 @endif
 
+<script>
+  function checkDelete() {
+    if (window.confirm('削除してよろしいですか？')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+</script>
 @endsection

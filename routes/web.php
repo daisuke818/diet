@@ -25,3 +25,10 @@ Route::get('/drafts/new', 'Auth\PostController@index')->name('drafts.new');
 
 // 宣言登録
 Route::post('/drafts/store', 'Auth\PostController@exeStore')->name('store');
+
+// 宣言編集画面を表示
+Route::get('/post/edit/{id}', 'Auth\PostController@showEdit')->name('edit');
+Route::post('/drafts/update', 'Auth\PostController@exeUpdate')->name('update');
+
+// 宣言削除
+Route::post('/drafts/delete/{id}', 'Auth\PostController@exeDelete')->name('delete');
